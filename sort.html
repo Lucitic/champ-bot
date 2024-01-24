@@ -2,43 +2,55 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
         <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" />
         <script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script>
         <script type="py" src="getFamHeads.py" config="./pyscript.json"></script>
 
     </head>
+    <nav class="container-fluid">
+        <ul>
+            <li>
+                <a href="../../" role="button">Home</a>
+            </li>
+        </ul>
+    </nav>
     <body>
-        <div id="first">
-            <label for="headname">Write the name of a head then click enter</label> <br>
-            <input placeholder="John Doe" type="text" id="headname" name="headname"></input>
-            <button py-click="addHead">Add Head</button>
-            <div class="table" id="headsarr">
+        <main>
+            <div class="container" id="first">
+                <label for="headname">Write the name of a head then click enter</label> <br>
+                <input placeholder="John Doe" type="text" id="headname" name="headname"></input>
+                <button py-click="addHead">Add Head</button>
+                <div class="table" id="headsarr">
 
+                </div>
+                <br />
+                <label for="famname">Write the name of a family the add it</label> <br>
+                <input placeholder="Star Guardians" type="text" id="famname" name="famname"></input>
+                <button py-click="addFam">Add family</button>
+                <div class="table" id="famsarr">
+                </div>
+                <br />
+                <label>When you have input all of the names please click Done</label> <br>
+                <button py-click="dictConstruct">Done</button>
             </div>
-
-            <label for="famname">Write the name of a family the add it</label> <br>
-            <input placeholder="Star Guardians" type="text" id="famname" name="famname"></input>
-            <button py-click="addFam">Add family</button>
-            <div class="table" id="famsarr">
+            <div class="container" id="second" style="display: none">
+                <div class="head_list" id= "head_list">
+                </div>
+                <label for="dict">Once all heads have the appropriate family please click continue</label>
+                <button py-click="dictCombine">Continue</button>
             </div>
-            <label>When you have input all of the names please click Done</label> <br>
-            <button py-click="dictConstruct">Done</button>
-        </div>
-        <div id="second" style="display: none">
-            <div class="head_list" id= "head_list">
+            <br />
+            <div class="container" id="third" style="display: none">
+                 <input type="file" id="champCSV">
+
+                <button py-click="csvFile"> Upload </button>
             </div>
-            <label for="dict">Once all heads have the appropriate family please click continue</label>
-            <button py-click="dictCombine">Continue</button>
-        </div>
-        <div id="third" style="display: none">
-             <input type="file" id="champCSV">
-
-            <button py-click="csvFile"> Upload </button>
-        </div>
-        <div id="fourth" style="display: none">
-             <a href="out.zip" download>Download Results</a>
-        </div>
-
+            <br />
+            <div class="container" id="fourth" style="display: none">
+                 <a href="out.zip" download>Download Results</a>
+            </div>
+        </main>
         <!--- <script type="py" src="famOrganizerForWeb.py" config="./pyscript.json"></script> -->
     </body>
 
